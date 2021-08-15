@@ -201,26 +201,28 @@ for i in range(len(inp)):
 
     #rs_____________________________
     elif inp[i][1] == "rs":
-      error = errorC(inp[i][1:]) #check error
+      error = errorB(inp[i][1:]) #check error
       if error[0]: #if error, print error statement
           errors.append((error[1], i+1))
           break
 
       opcode = opcodet["rs"][0]
       unused = "00000"
-      out = opcode + unused + flag_register[inp[i][2]] + flag_register[inp[i][3]]
+      b = converttoBinary(inp[i][3][1:])
+      out = opcode + unused + flag_register[inp[i][2]] + b
       output.append(out)
     
     #ls_____________________________
     elif inp[i][1] == "ls":
-      error = errorC(inp[i][1:]) #check error
+      error = errorB(inp[i][1:]) #check error
       if error[0]: #if error, print error statement
           errors.append((error[1], i+1))
           break
 
       opcode = opcodet["ls"][0]
       unused = "00000"
-      out = opcode + unused + flag_register[inp[i][2]] + flag_register[inp[i][3]]
+      b = converttoBinary(inp[i][3][1:])
+      out = opcode + unused + flag_register[inp[i][2]] + b
       output.append(out)  
 
     #xor_____________________________
@@ -534,20 +536,21 @@ for i in range(len(inp)):
   #rs_____________________________
   elif inp[i][0] == "rs":
     var_end = True #check if end
-    error = errorC(inp[i]) #check error
+    error = errorB(inp[i]) #check error
     if error[0]: #if error, print error statement
         errors.append((error[1], i+1))
         break
 
     opcode = opcodet["rs"][0]
     unused = "00000"
-    out = opcode + unused + flag_register[inp[i][1]] + flag_register[inp[i][2]]
+    b = converttoBinary(inp[i][2][1:])
+    out = opcode + unused + flag_register[inp[i][1]] + b
     output.append(out)
   
   #ls_____________________________
   elif inp[i][0] == "ls":
     var_end = True #check if end
-    error = errorC(inp[i]) #check error
+    error = errorB(inp[i]) #check error
     if error[0]: #if error, print error statement
         errors.append((error[1], i+1))
         break
