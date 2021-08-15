@@ -207,9 +207,8 @@ for i in range(len(inp)):
           break
 
       opcode = opcodet["rs"][0]
-      unused = "00000"
       b = converttoBinary(inp[i][3][1:])
-      out = opcode + unused + flag_register[inp[i][2]] + b
+      out = opcode + flag_register[inp[i][2]] + b
       output.append(out)
     
     #ls_____________________________
@@ -220,9 +219,8 @@ for i in range(len(inp)):
           break
 
       opcode = opcodet["ls"][0]
-      unused = "00000"
       b = converttoBinary(inp[i][3][1:])
-      out = opcode + unused + flag_register[inp[i][2]] + b
+      out = opcode + flag_register[inp[i][2]] + b
       output.append(out)  
 
     #xor_____________________________
@@ -542,9 +540,8 @@ for i in range(len(inp)):
         break
 
     opcode = opcodet["rs"][0]
-    unused = "00000"
     b = converttoBinary(inp[i][2][1:])
-    out = opcode + unused + flag_register[inp[i][1]] + b
+    out = opcode + flag_register[inp[i][1]] + b
     output.append(out)
   
   #ls_____________________________
@@ -556,8 +553,7 @@ for i in range(len(inp)):
         break
 
     opcode = opcodet["ls"][0]
-    unused = "00000"
-    out = opcode + unused + flag_register[inp[i][1]] + flag_register[inp[i][2]]
+    out = opcode + flag_register[inp[i][1]] + flag_register[inp[i][2]]
     output.append(out)  
 
   #xor_____________________________
