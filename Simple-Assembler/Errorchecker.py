@@ -51,6 +51,13 @@ def errorB(comm):
     elif not comm[2].startswith("$"):
         return (True, "Wrong syntax used for instructions")
 
+    elif not comm[2][1:].isnum():
+            return (True, "Illegal Immediate values")
+
+    elif comm[2][1:].isnum():
+        if int(comm[2][1:]) > 255 or int(comm[2][1:]) < 0:
+            return (True, "Illegal Immediate values")
+
     return (False, None)
 
 def errorC(comm):
